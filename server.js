@@ -15,6 +15,7 @@ app.post("/", (req, res) => {
 
   const roam = new RoamPrivateApi(process.env.ROAM_GRAPH_NAME, process.env.ROAM_EMAIL, process.env.ROAM_PASSWORD, {
     headless: true,
+    args: ['--no-sandbox']
   });
 
   const dailyNoteUid = roam.dailyNoteUid();
