@@ -21,7 +21,8 @@ app.post("/", (req, res) => {
       .then( () => roam.createBlock( body, dailyNoteUid ))
       .then( result => roam.close() );
   //roam.quickCapture( [ body ] );
-  //res.status(200).send("success");
+
+  res.status(200).send("success");
 });
 
 app.listen(port, () => {
