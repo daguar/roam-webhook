@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.post("/", (req, res) => {
-  const body = req.body.note;
+  const body = req.body.Body;
   console.log(body);
 
   const roam = new RoamPrivateApi(process.env.ROAM_GRAPH_NAME, process.env.ROAM_EMAIL, process.env.ROAM_PASSWORD, {
