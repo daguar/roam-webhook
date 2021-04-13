@@ -10,7 +10,8 @@ app.use(bodyParser.json());
 
 app.post("/", (req, res) => {
   const body = req.body.Body;
-  console.log(body);
+
+  console.log(body); // For logging only
 
   const roam = new RoamPrivateApi(process.env.ROAM_GRAPH_NAME, process.env.ROAM_EMAIL, process.env.ROAM_PASSWORD, {
     headless: true,
