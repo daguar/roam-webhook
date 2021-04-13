@@ -9,8 +9,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.post("/", (req, res) => {
-  const body = req.body.myparam;
+  const body = req.body.note;
   console.log(body);
+
   const roam = new RoamPrivateApi(process.env.ROAM_GRAPH_NAME, process.env.ROAM_EMAIL, process.env.ROAM_PASSWORD, {
     headless: true,
   });
@@ -20,7 +21,6 @@ app.post("/", (req, res) => {
   roam.logIn()
       .then( () => roam.createBlock( body, dailyNoteUid ))
       .then( result => roam.close() );
-  //roam.quickCapture( [ body ] );
 
   res.status(200).send("success");
 });
