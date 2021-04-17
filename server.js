@@ -9,11 +9,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.post("/", (req, res) => {
-  const body = req.body.note;
-  console.log(body);
+  const body = req.body.Body;
+
+  console.log(body); // For logging only
 
   const roam = new RoamPrivateApi(process.env.ROAM_GRAPH_NAME, process.env.ROAM_EMAIL, process.env.ROAM_PASSWORD, {
     headless: true,
+    args: ['--no-sandbox']
   });
 
   const dailyNoteUid = roam.dailyNoteUid();
